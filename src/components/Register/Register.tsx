@@ -16,7 +16,7 @@ export class ComponentRegister extends React.Component<{ register: Register }> {
             <ComponentRegisterCreditCardForm register={this.props.register} />
             <ComponentButtonIcon
               icon={['fal', 'arrow-down']}
-              backgroundColor='#aaa'
+              backgroundColor='black'
               label='Next'
               isActivated={
                 this.props.register.isNameOnCardValid &&
@@ -25,6 +25,7 @@ export class ComponentRegister extends React.Component<{ register: Register }> {
                 this.props.register.isSecurityCodeValid &&
                 this.props.register.isZipValid
               }
+              isBottom={true}
               onClick={() => this.props.register.screen = RegisterScreens.Luggage}
             />
           </div>
@@ -36,9 +37,10 @@ export class ComponentRegister extends React.Component<{ register: Register }> {
             <ComponentRegisterLuggageForm register={this.props.register} />
             <ComponentButtonIcon
               icon={['fal', 'check']}
-              backgroundColor='#aaa'
+              backgroundColor='black'
               label='Complete Registration'
-              isActivated={true}
+              isActivated={this.props.register.isLuggagePictureUrlValid}
+              isBottom={true}
               onClick={() => window.alert(123)}
             />
           </div>

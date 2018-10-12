@@ -4,19 +4,22 @@
   cursor: pointer;
   display: flex;
   height: 3rem;
-  position: absolute;
-  bottom: 1.5625rem;
-  left: 1.5625rem;
-  width: calc(100% - 3.125rem);
   transition: transform .3s, box-shadow .3s;
 
-  &_deactivated {
+  &.is-deactivated {
     cursor: default;
 
     &:hover {
       box-shadow: none !important;
       transform: none !important;
     }
+  }
+
+  &.is-bottom {
+    position: absolute;
+    bottom: 1.5625rem;
+    left: 1.5625rem;
+    width: calc(100% - 3.125rem);
   }
 
   &:hover {

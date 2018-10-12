@@ -6,7 +6,7 @@ import { Register } from '../../store'
 export class ComponentRegisterCreditCardForm extends React.Component<{ register: Register }> {
   render() {
     return (
-      <div className='c-register-form'>
+      <div className='c-register-credit-card-form'>
         <div className='field'>
           <label className='label'>Name on card</label>
           <div className='control'>

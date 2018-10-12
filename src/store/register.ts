@@ -68,6 +68,10 @@ export class Register {
     return this.zip !== ''
   }
 
+  @computed get isLuggagePictureUrlValid() {
+    return this.luggagePictureUrl !== ''
+  }
+
   @action setScreen(screen: RegisterScreens) {
     this.screen = screen
   }

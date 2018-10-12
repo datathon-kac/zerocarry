@@ -26,6 +26,7 @@ export class ComponentFirstTime extends React.Component {
               backgroundColor='#007cff'
               label='Sign In with Facebook'
               isActivated={true}
+              isBottom={true}
               onClick={() => screen.setScreen(Screens.Register)}
             />
           </div>

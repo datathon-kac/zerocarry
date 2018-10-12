@@ -1,4 +1,4 @@
-.c-register-form {
+.c-register-credit-card-form {
   padding: .9375rem;
 
   .columns.is-narrow {
@@ -6,6 +6,54 @@
 
     .column {
       padding: 0 .25rem;
+    }
+  }
+}
+
+.c-register-luggage-form {
+  padding: 1.5625rem;
+
+  &__image {
+    background-color: #eee;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    height: 20rem;
+  }
+
+  &__empty {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+    svg {
+      display: inline-block;
+      font-size: 1.75rem;
+      margin-bottom: .5rem;
+    }
+    label {
+      display: block;
+    }
+  }
+  
+  .c-button-icon {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    &:hover {
+      box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, .1);
+      transform: none;
+    }
+
+    &__icon {
+      color: black;
+      box-shadow: 1px 0 0 0 rgba(0, 0, 0, .05);
+    }
+    &__label {
+      span {
+        color: black;
+      }
     }
   }
 }
