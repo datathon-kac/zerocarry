@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { screen, Screens } from '../../store'
+import { screen, GlobalScreen } from '../../store'
 import { ComponentButtonIcon } from '../Button'
 import LogoImage from './FirstTimeLogo.svg'
 import BackgroundImage from './FirstTimeBackground.jpg'
@@ -27,7 +27,7 @@ export class ComponentFirstTime extends React.Component {
               label='Sign In with Facebook'
               isActivated={true}
               isBottom={true}
-              onClick={() => screen.setScreen(Screens.Register)}
+              onClick={() => screen.setGlobalScreen(GlobalScreen.Register)}
             />
           </div>
         </div>

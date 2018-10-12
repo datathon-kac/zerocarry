@@ -1,12 +1,6 @@
 import { action, observable, computed } from 'mobx'
 
-export enum RegisterScreens {
-  CreditCard,
-  Luggage,
-}
-
 export class Register {
-  @observable screen: RegisterScreens
   @observable nameOnCard: string
   @observable cardNumber1: string
   @observable cardNumber2: string
@@ -19,17 +13,17 @@ export class Register {
   @observable luggagePictureUrl: string
 
   constructor() {
-    this.screen = RegisterScreens.CreditCard
-    this.nameOnCard = ''
-    this.cardNumber1 = ''
-    this.cardNumber2 = ''
-    this.cardNumber3 = ''
-    this.cardNumber4 = ''
-    this.expiryDateMonth = ''
-    this.expiryDateYear = ''
-    this.securityCode = ''
-    this.zip = ''
-    this.luggagePictureUrl = ''
+    const user = JSON.parse(localStorage.getItem('user') as string)
+    this.nameOnCard = user.nameOnCard || ''
+    this.cardNumber1 = user.cardNumber1 || ''
+    this.cardNumber2 = user.cardNumber2 || ''
+    this.cardNumber3 = user.cardNumber3 || ''
+    this.cardNumber4 = user.cardNumber4 || ''
+    this.expiryDateMonth = user.expiryDateMonth || ''
+    this.expiryDateYear = user.expiryDateYear || ''
+    this.securityCode = user.securityCode || ''
+    this.zip = user.zip || ''
+    this.luggagePictureUrl = user.luggagePictureUrl || ''
   }
 
   @computed get cardNumber() {
@@ -70,10 +64,6 @@ export class Register {
 
   @computed get isLuggagePictureUrlValid() {
     return this.luggagePictureUrl !== ''
-  }
-
-  @action setScreen(screen: RegisterScreens) {
-    this.screen = screen
   }
 
   @action setNameOnCard(name: string) {
