@@ -26,22 +26,46 @@ class ComponentRegisterForm extends React.Component<{ register: Register }> {
           <div className='columns is-narrow'>
             <div className='column'>
               <div className='control'>
-                <input className='input' type='text' placeholder='1234' />
+                <input
+                  className='input'
+                  type='text'
+                  placeholder='1234'
+                  value={this.props.register.cardNumber1}
+                  onChange={(e) => this.props.register.setCardNumber1(e.target.value)}
+                />
               </div>
             </div>
             <div className='column'>
               <div className='control'>
-                <input className='input' type='text' placeholder='5678' />
+                <input
+                  className='input'
+                  type='text'
+                  placeholder='5678'
+                  value={this.props.register.cardNumber2}
+                  onChange={(e) => this.props.register.setCardNumber2(e.target.value)}
+                />
               </div>
             </div>
             <div className='column'>
               <div className='control'>
-                <input className='input' type='text' placeholder='9012' />
+                <input
+                  className='input'
+                  type='text'
+                  placeholder='9012'
+                  value={this.props.register.cardNumber3}
+                  onChange={(e) => this.props.register.setCardNumber3(e.target.value)}
+                />
               </div>
             </div>
             <div className='column'>
               <div className='control'>
-                <input className='input' type='text' placeholder='3456' />
+                <input
+                  className='input'
+                  type='text'
+                  placeholder='3456'
+                  value={this.props.register.cardNumber4}
+                  onChange={(e) => this.props.register.setCardNumber4(e.target.value)}
+                />
               </div>
             </div>
           </div>
@@ -53,12 +77,24 @@ class ComponentRegisterForm extends React.Component<{ register: Register }> {
               <div className='columns is-narrow'>
                 <div className='column'>
                   <div className='control'>
-                    <input className='input' type='text' placeholder='MM' />
+                    <input
+                      className='input'
+                      type='text'
+                      placeholder='MM'
+                      value={this.props.register.expiryDateMonth}
+                      onChange={(e) => this.props.register.setExpiryDateMonth(e.target.value)}
+                    />
                   </div>
                 </div>
                 <div className='column'>
                   <div className='control'>
-                    <input className='input' type='text' placeholder='YYYY' />
+                    <input
+                      className='input'
+                      type='text'
+                      placeholder='YYYY'
+                      value={this.props.register.expiryDateYear}
+                      onChange={(e) => this.props.register.setExpiryDateYear(e.target.value)}
+                    />
                   </div>
                 </div>
               </div>
@@ -68,7 +104,13 @@ class ComponentRegisterForm extends React.Component<{ register: Register }> {
             <div className='field'>
               <label className='label'>Security Code</label>
               <div className='control'>
-                <input className='input' type='text' placeholder='123' />
+                <input
+                  className='input'
+                  type='text'
+                  placeholder='123'
+                  value={this.props.register.securityCode}
+                  onChange={(e) => this.props.register.setSecurityCode(e.target.value)}
+                />
               </div>
             </div>
           </div>
@@ -76,7 +118,13 @@ class ComponentRegisterForm extends React.Component<{ register: Register }> {
         <div className='field'>
           <label className='label'>ZIP / Postal Code</label>
           <div className='control'>
-            <input className='input' type='text' placeholder='12345' />
+            <input
+              className='input'
+              type='text'
+              placeholder='12345'
+              value={this.props.register.zip}
+              onChange={(e) => this.props.register.setZip(e.target.value)}
+            />
           </div>
         </div>
       </div>
@@ -92,12 +140,18 @@ export default class ComponentRegister extends React.Component<{ register: Regis
         return (
           <div className='c-register'>
             <ComponentTop label='Register<br/>Credit Card' icon={['fal', 'clipboard']} />
-            <ComponentRegisterForm register={register} />
+            <ComponentRegisterForm register={this.props.register} />
             <ComponentButtonIcon
               icon={['fal', 'arrow-down']}
               backgroundColor='#aaa'
               label='Next'
-              isActivated={true}
+              isActivated={
+                this.props.register.isNameOnCardValid &&
+                this.props.register.isCardNumberValid &&
+                this.props.register.isExpiryDateValid &&
+                this.props.register.isSecurityCodeValid &&
+                this.props.register.isZipValid
+              }
               onClick={() => window.alert(123)}
             />
           </div>
