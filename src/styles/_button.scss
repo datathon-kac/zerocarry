@@ -11,7 +11,7 @@
   transition: transform .3s, box-shadow .3s;
 
   &_deactivated {
-    cursor: pointer;
+    cursor: default;
 
     &:hover {
       box-shadow: none !important;

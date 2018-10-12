@@ -1,11 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
 import { screen, Screens } from '../../store'
-import ComponentButtonIcon from '../Button/Icon'
+import { ComponentButtonIcon } from '../Button'
 import LogoImage from './FirstTimeLogo.svg'
 import BackgroundImage from './FirstTimeBackground.jpg'
 
-export default class ComponentFirstTime extends React.Component {
+export class ComponentFirstTime extends React.Component {
   render() {
     return (
       <div className='c-first-time'>

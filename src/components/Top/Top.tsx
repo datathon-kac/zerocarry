@@ -2,7 +2,7 @@ import * as React from 'react'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default class ComponentTop extends React.Component<{ label: string, icon?: IconProp }, { isFixedVisible: boolean }> {
+export class ComponentTop extends React.Component<{ label: string, icon?: IconProp }, { isFixedVisible: boolean }> {
   state = {
     isFixedVisible: false,
   }

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default class ComponentButtonIcon extends React.Component<{
+export class ComponentButtonIcon extends React.Component<{
   icon: IconProp,
   backgroundColor: string,
   label: string,

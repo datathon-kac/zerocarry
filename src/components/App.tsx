@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { observer } from 'mobx-react'
 import { Screen, Screens, register } from '../store'
-import ComponentFirstTime from './FirstTime/FirstTime'
-import ComponentRegister from './Register/Register'
-import ComponentLuggages from './Luggages/Luggages'
-import ComponentAdd from './Add/Add'
+import { ComponentFirstTime } from './FirstTime'
+import { ComponentRegister } from './Register'
+import { ComponentLuggages } from './Luggages'
+import { ComponentAdd } from './Add'
 
 @observer
 export default class ComponentApp extends React.Component<{ screen: Screen }> {
