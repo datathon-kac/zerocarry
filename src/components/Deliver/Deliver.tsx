@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { screen, GlobalScreen } from '../../store'
 import { ComponentTop } from '../Top'
 import { ComponentButtonIcon } from '../Button'
 
@@ -16,7 +17,7 @@ export class ComponentDeliver extends React.Component {
           label='Request Delivery'
           isActivated={true}
           isBottom={true}
-          onClick={() => {}}
+          onClick={() => screen.setGlobalScreen(GlobalScreen.Add)}
         />
       </div>
     )

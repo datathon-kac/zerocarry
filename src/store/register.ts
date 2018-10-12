@@ -14,16 +14,16 @@ export class Register {
 
   constructor() {
     const user = JSON.parse(localStorage.getItem('user') as string)
-    this.nameOnCard = user.nameOnCard || ''
-    this.cardNumber1 = user.cardNumber1 || ''
-    this.cardNumber2 = user.cardNumber2 || ''
-    this.cardNumber3 = user.cardNumber3 || ''
-    this.cardNumber4 = user.cardNumber4 || ''
-    this.expiryDateMonth = user.expiryDateMonth || ''
-    this.expiryDateYear = user.expiryDateYear || ''
-    this.securityCode = user.securityCode || ''
-    this.zip = user.zip || ''
-    this.luggagePictureUrl = user.luggagePictureUrl || ''
+    this.nameOnCard = (user && user.nameOnCard) || ''
+    this.cardNumber1 = (user && user.cardNumber1) || ''
+    this.cardNumber2 = (user && user.cardNumber2) || ''
+    this.cardNumber3 = (user && user.cardNumber3) || ''
+    this.cardNumber4 = (user && user.cardNumber4) || ''
+    this.expiryDateMonth = (user && user.expiryDateMonth) || ''
+    this.expiryDateYear = (user && user.expiryDateYear) || ''
+    this.securityCode = (user && user.securityCode) || ''
+    this.zip = (user && user.zip) || ''
+    this.luggagePictureUrl = (user && user.luggagePictureUrl) || ''
   }
 
   @computed get cardNumber() {

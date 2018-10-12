@@ -1,6 +1,6 @@
 .c-top-in {
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
-  margin-top: 3.75rem;
+  padding-top: 3.75rem;
   position: relative;
 
   &__label {
@@ -19,6 +19,32 @@
 }
 
 .c-top-fixed {
+  position: fixed;
+  display: none;
+}
+
+.c-top-add-in {
+  background-color: #f7f0ff;
+  box-shadow: 0 1px 0 0 #e4ceff;
+  padding-top: 3.75rem;
+  position: relative;
+
+  &__label {
+    color: #7200ff;
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.33;
+    padding: 0 .9375rem .9375rem;
+  }
+  &__icon {
+    color: black;
+    position: absolute;
+    bottom: 1.15rem;
+    right: .9375rem;
+  }
+}
+
+.c-top-add-fixed {
   position: fixed;
   display: none;
 }

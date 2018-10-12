@@ -10,6 +10,14 @@ import { ComponentButtonIcon } from '../Button'
 export class ComponentRegisterLuggageForm extends React.Component<{ register: Register }> {
   async upload() {
     const file = await getFile('image/jpg, image/png')
+    // const { url, fields } = (
+    //   await axios.get(`http://192.168.164.34:3000/api/presignedurl/${file.name}`)
+    // ).data
+    // fields.file = file
+    // const result = await axios.post(
+    //   url,
+    //   fields,
+    // )
   }
 
   render() {
