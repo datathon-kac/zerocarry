@@ -1,0 +1,27 @@
+{
+  "name": "zerocarry",
+  "version": "1.0.0",
+  "description": "Zerocarry Web Client",
+  "main": "",
+  "scripts": {
+    "dev": "parcel ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kac-datathon/zerocarry.git"
+  },
+  "author": "Tony Won <tony@erion.kr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kac-datathon/zerocarry/issues"
+  },
+  "homepage": "https://github.com/kac-datathon/zerocarry#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3",
+    "typescript": "^3.1.3"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
