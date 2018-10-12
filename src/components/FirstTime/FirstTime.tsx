@@ -1,10 +1,16 @@
 import * as React from 'react'
-import { screen, GlobalScreen } from '../../store'
+import { register, screen, GlobalScreen } from '../../store'
 import { ComponentButtonIcon } from '../Button'
 import LogoImage from './FirstTimeLogo.svg'
 import BackgroundImage from './FirstTimeBackground.jpg'
 
 export class ComponentFirstTime extends React.Component {
+  signInOrRegister = () => {
+    screen.setGlobalScreen(
+      register.nameOnCard ? GlobalScreen.Deliver : GlobalScreen.Register,
+    )
+  }
+
   render() {
     return (
       <div className='c-first-time'>
@@ -27,7 +33,7 @@ export class ComponentFirstTime extends React.Component {
               label='Sign In with Facebook'
               isActivated={true}
               isBottom={true}
-              onClick={() => screen.setGlobalScreen(GlobalScreen.Register)}
+              onClick={this.signInOrRegister}
             />
           </div>
         </div>

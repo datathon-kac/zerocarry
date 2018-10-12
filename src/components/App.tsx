@@ -21,7 +21,7 @@ export default class ComponentApp extends React.Component<{ screen: Screen }> {
           <ComponentDeliver />
         )}
         {this.props.screen.global === GlobalScreen.Add && (
-          <ComponentAdd />
+          <ComponentAdd screen={this.props.screen} />
         )}
       </div>
     )

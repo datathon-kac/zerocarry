@@ -4,6 +4,9 @@ import { ComponentTop } from '../Top'
 import { ComponentButtonIcon } from '../Button'
 
 export class ComponentDeliver extends React.Component {
+  addNewDeliver = () => {
+    screen.setGlobalScreen(GlobalScreen.Add)
+  }
   render() {
     return (
       <div className='c-deliver'>
@@ -17,7 +20,7 @@ export class ComponentDeliver extends React.Component {
           label='Request Delivery'
           isActivated={true}
           isBottom={true}
-          onClick={() => screen.setGlobalScreen(GlobalScreen.Add)}
+          onClick={this.addNewDeliver}
         />
       </div>
     )

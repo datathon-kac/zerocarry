@@ -8,22 +8,19 @@ import { ComponentButtonIcon } from '../Button'
 
 @observer
 export class ComponentRegisterLuggageForm extends React.Component<{ register: Register }> {
-  async upload() {
+  upload = async () => {
     const file = await getFile('image/jpg, image/png')
-    // const { url, fields } = (
-    //   await axios.get(`http://192.168.164.34:3000/api/presignedurl/${file.name}`)
-    // ).data
-    // fields.file = file
-    // const result = await axios.post(
-    //   url,
-    //   fields,
-    // )
+    const { presignedURL } = (
+      await axios.get(`http://192.168.164.34:3000/api/presignedurl/${file.name}`)
+    ).data
+    await uploadFileToS3Directly(presignedURL, file)
+    this.props.register.setLuggagePictureUrl(`https://zero-carry.s3.ap-southeast-1.amazonaws.com/${file.name}`)
   }
 
   render() {
     return (
       <div className='c-register-luggage-form'>
-        <div className='c-register-luggage-form__image'>
+        <div className='c-register-luggage-form__image' style={{ backgroundImage: `url(${this.props.register.luggagePictureUrl})`}}>
           {!this.props.register.isLuggagePictureUrlValid && (
             <div className='c-register-luggage-form__empty'>
               <FontAwesomeIcon icon={['fal', 'sad-tear']} />
@@ -38,7 +35,7 @@ export class ComponentRegisterLuggageForm extends React.Component<{ register: Re
             label='Upload a new picture'
             isActivated={true}
             isBottom={false}
-            onClick={() => this.upload()}
+            onClick={this.upload}
           />
         </div>
       </div>

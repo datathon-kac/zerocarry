@@ -1,3 +1,4 @@
+import axios from 'axios'
 import * as React from 'react'
 import { Register, screen, GlobalScreen, RegisterScreen, Screen } from '../../store'
 import { observer } from 'mobx-react'
@@ -7,15 +8,23 @@ import { ComponentRegisterCreditCardForm, ComponentRegisterLuggageForm } from '.
 
 @observer
 export class ComponentRegister extends React.Component<{ register: Register, screen: Screen }> {
-  register() {
-    localStorage.setItem('user', JSON.stringify(this.props.register))
-    screen.setGlobalScreen(GlobalScreen.Deliver)
+  gotoLuggagePictureUploadScreen = () => {
+    this.props.screen.setRegisterScreen(RegisterScreen.Luggage)
   }
 
-  componentWillMount() {
-    if (this.props.register.nameOnCard !== '') {
-      this.props.screen.setGlobalScreen(GlobalScreen.Deliver)
-    }
+  register = async () => {
+    localStorage.setItem('user', JSON.stringify(this.props.register))
+    await axios.post('http://192.168.164.34:3000/api/users/', {
+      firstName: 'tony',
+      lastName: 'won',
+      username: 'tonywon',
+      password: 'fuckingdatathon',
+      email: 'tony@erion.kr',
+      passportCode: 'M12345678',
+      contactNumber: '01036319283',
+      luggagePictureUrl: this.props.register.luggagePictureUrl,
+    })
+    screen.setGlobalScreen(GlobalScreen.Deliver)
   }
 
   render() {
@@ -37,7 +46,7 @@ export class ComponentRegister extends React.Component<{ register: Register, scr
                 this.props.register.isZipValid
               }
               isBottom={true}
-              onClick={() => this.props.screen.setRegisterScreen(RegisterScreen.Luggage)}
+              onClick={this.gotoLuggagePictureUploadScreen}
             />
           </>
         )}
@@ -49,10 +58,10 @@ export class ComponentRegister extends React.Component<{ register: Register, scr
               icon={['fal', 'check']}
               backgroundColor='black'
               label='Complete Registration'
-              // isActivated={this.props.register.isLuggagePictureUrlValid}
-              isActivated={true}
+              isActivated={this.props.register.isLuggagePictureUrlValid}
+              // isActivated={true}
               isBottom={true}
-              onClick={() => this.register()}
+              onClick={this.register}
             />
           </>
         )}

@@ -16,13 +16,19 @@ interface ComponentButtonIconState {
 }
 
 export class ComponentButtonIcon extends React.Component<ComponentButtonIconProps, ComponentButtonIconState> {
+  onClick = () => {
+    if (this.props.isActivated) {
+      this.props.onClick()
+    }
+  }
+
   render() {
     return (
       <div
         className={`c-button-icon ${!this.props.isActivated ? 'is-deactivated' : ''} ${this.props.isBottom ? 'is-bottom' : ''}`}
         style={{ backgroundColor: this.props.isActivated ? this.props.backgroundColor : undefined }}
         // onClick={() => screen.setScreen(Screens.Register)}
-        onClick={() => this.props.isActivated && this.props.onClick()}
+        onClick={this.onClick}
       >
         <div className='c-button-icon__icon'>
           <FontAwesomeIcon icon={this.props.icon} />

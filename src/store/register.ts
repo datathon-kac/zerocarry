@@ -101,6 +101,10 @@ export class Register {
   @action setZip(code: string) {
     this.zip = code
   }
+
+  @action setLuggagePictureUrl(url: string) {
+    this.luggagePictureUrl = url
+  }
 }
 
 export default new Register()

@@ -1,4 +1,4 @@
-import { action, computed, observable } from 'mobx'
+import { action, observable } from 'mobx'
 
 export enum GlobalScreen {
   FirstTime,
@@ -12,23 +12,34 @@ export enum RegisterScreen {
   Luggage,
 }
 
+export enum AddScreen {
+  Agreements,
+  Airplane,
+  Details,
+  Payment,
+}
+
 export class Screen {
   @observable public global: GlobalScreen
   @observable public register: RegisterScreen
+  @observable public add: AddScreen
 
   constructor() {
     this.global = GlobalScreen.FirstTime
     this.register = RegisterScreen.CreditCard
+    this.add = AddScreen.Agreements
   }
 
-  @action
-  public setGlobalScreen(screen: GlobalScreen) {
+  @action setGlobalScreen(screen: GlobalScreen) {
     this.global = screen
   }
 
-  @action
-  public setRegisterScreen(screen: RegisterScreen) {
+  @action setRegisterScreen(screen: RegisterScreen) {
     this.register = screen
+  }
+
+  @action setAddScreen(screen: AddScreen) {
+    this.add = screen
   }
 }
 
