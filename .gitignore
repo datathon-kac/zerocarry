@@ -2,3 +2,4 @@ node_modules
 dist
 .cache
 .npmrc
+.DS_Store

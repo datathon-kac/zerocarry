@@ -1,12 +1,39 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import { observer } from 'mobx-react'
+import { Screen, Screens, register } from '../store'
+import ComponentFirstTime from './FirstTime/FirstTime'
+import ComponentRegister from './Register/Register'
+import ComponentLuggages from './Luggages/Luggages'
+import ComponentAdd from './Add/Add'
 
-const Header = styled.h1`
-  color: #aaa;
-`
-
-export default class App extends React.Component {
+@observer
+export default class ComponentApp extends React.Component<{ screen: Screen }> {
   render() {
-    return <Header>hello, world</Header>
+    switch (this.props.screen.now) {
+      case Screens.FirstTime:
+        return (
+          <div className='c-app'>
+            <ComponentFirstTime />
+          </div>
+        )
+      case Screens.Register:
+        return (
+          <div className='c-app'>
+            <ComponentRegister register={register}/>
+          </div>
+        )
+      case Screens.Luggages:
+        return (
+          <div className='c-app'>
+            <ComponentLuggages />
+          </div>
+        )
+      case Screens.Add:
+        return (
+          <div className='c-app'>
+            <ComponentAdd />
+          </div>
+        )
+    }
   }
 }

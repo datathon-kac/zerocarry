@@ -1,0 +1,57 @@
+.c-button-icon {
+  background-color: #ddd;
+  border-radius: .25rem;
+  cursor: pointer;
+  display: flex;
+  height: 3rem;
+  position: absolute;
+  bottom: 1.5625rem;
+  left: 1.5625rem;
+  width: calc(100% - 3.125rem);
+  transition: transform .3s, box-shadow .3s;
+
+  &_deactivated {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: none !important;
+      transform: none !important;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .15);
+    transform: translateY(-.125rem);
+  }
+
+  &__icon {
+    box-shadow: 1px 0 0 0 rgba(255, 255, 255, .2);
+    color: white;
+    font-size: 1.5rem;
+    width: 3rem;
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__label {
+    position: relative;
+    flex: 1;
+
+    span {
+      color: white;
+      font-size: .9375rem;
+      font-weight: 500;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+  }
+}

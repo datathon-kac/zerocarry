@@ -1,0 +1,24 @@
+.c-top-in {
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
+  margin-top: 3.75rem;
+  position: relative;
+
+  &__label {
+    color: black;
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.33;
+    padding: 0 .9375rem .9375rem;
+  }
+  &__icon {
+    color: black;
+    position: absolute;
+    bottom: 1.15rem;
+    right: .9375rem;
+  }
+}
+
+.c-top-fixed {
+  position: fixed;
+  display: none;
+}
