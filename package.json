@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/kac-datathon/zerocarry#readme",
   "devDependencies": {
+    "@types/react": "^16.4.16",
+    "@types/react-dom": "^16.0.9",
     "parcel-bundler": "^1.10.3",
     "typescript": "^3.1.3"
   },
