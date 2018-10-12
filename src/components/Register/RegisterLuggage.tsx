@@ -1,11 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
+import axios from 'axios'
 import { observer } from 'mobx-react'
 import { Register } from '../../store'
+import { getFile, uploadFileToS3Directly } from '../../utils'
 import { ComponentButtonIcon } from '../Button'
 
 @observer
 export class ComponentRegisterLuggageForm extends React.Component<{ register: Register }> {
+  async upload() {
+    const file = await getFile('image/jpg, image/png')
+  }
+
   render() {
     return (
       <div className='c-register-luggage-form'>
@@ -24,7 +30,7 @@ export class ComponentRegisterLuggageForm extends React.Component<{ register: Re
             label='Upload a new picture'
             isActivated={true}
             isBottom={false}
-            onClick={() => window.alert('123')}
+            onClick={() => this.upload()}
           />
         </div>
       </div>

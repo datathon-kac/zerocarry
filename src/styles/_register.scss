@@ -21,11 +21,13 @@
   }
 
   &__empty {
+    color: rgba(0, 0, 0, .3);
     position: absolute;
     top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    text-shadow: 0 -1px 0 rgba(255, 255, 255, .9);
     
     svg {
       display: inline-block;

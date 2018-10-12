@@ -3,7 +3,7 @@ import { action, computed, observable } from 'mobx'
 export enum Screens {
   FirstTime,
   Register,
-  Luggages,
+  Deliver,
   Add,
 }
 
