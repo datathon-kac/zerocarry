@@ -17,19 +17,21 @@ export class ComponentRegister extends React.Component<{ register?: Register, sc
   }
 
   register = async () => {
-    // if (!this.props.register) {
-    //   throw new Error('register store is undefined')
-    // }
-    // await axios.post('http://192.168.164.34:3000/api/users/', {
-    //   firstName: 'tony',
-    //   lastName: 'won',
-    //   username: 'tonywon',
-    //   password: 'fuckingdatathon',
-    //   email: 'tony@erion.kr',
-    //   passportCode: 'M12345678',
-    //   contactNumber: '01036319283',
-    //   luggagePictureUrl: this.props.register.luggagePictureUrl,
-    // })
+    /*
+      if (!this.props.register) {
+        throw new Error('register store is undefined')
+      }
+      await axios.post('http://192.168.164.34:3000/api/users/', {
+        firstName: 'tony',
+        lastName: 'won',
+        username: 'tonywon',
+        password: 'fuckingdatathon',
+        email: 'tony@erion.kr',
+        passportCode: 'M12345678',
+        contactNumber: '01036319283',
+        luggagePictureUrl: this.props.register.luggagePictureUrl,
+      })
+    */
     localStorage.setItem('user', JSON.stringify(this.props.register))
     screen.setGlobalScreen(GlobalScreen.Deliver)
   }

@@ -12,7 +12,7 @@ declare const window: any
 export class ComponentRequestDetailsForm extends React.Component<{ request?: Request }> {
   componentDidMount() {
     const inputs = document.getElementsByClassName('c-request-details-form__address-input')
-    const geocoder = new window.google.maps.Geocoder()
+    // const geocoder = new window.google.maps.Geocoder()
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i]
       const autocomplete = new window.google.maps.places.Autocomplete(input, {

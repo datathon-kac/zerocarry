@@ -27,7 +27,6 @@ export class ComponentButtonIcon extends React.Component<ComponentButtonIconProp
       <div
         className={`c-button-icon ${!this.props.isActivated ? 'is-deactivated' : ''} ${this.props.isBottom ? 'is-bottom' : ''}`}
         style={{ backgroundColor: this.props.isActivated ? this.props.backgroundColor : undefined }}
-        // onClick={() => screen.setScreen(Screens.Register)}
         onClick={this.onClick}
       >
         <div className='c-button-icon__icon'>
