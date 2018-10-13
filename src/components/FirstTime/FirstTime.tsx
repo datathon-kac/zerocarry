@@ -5,6 +5,11 @@ import LogoImage from './FirstTimeLogo.svg'
 import BackgroundImage from './FirstTimeBackground.jpg'
 
 export class ComponentFirstTime extends React.Component {
+  componentWillMount() {
+    if (register.nameOnCard) {
+      screen.setGlobalScreen(GlobalScreen.Deliver)
+    }
+  }
   signInOrRegister = () => {
     screen.setGlobalScreen(
       register.nameOnCard ? GlobalScreen.Deliver : GlobalScreen.Register,
