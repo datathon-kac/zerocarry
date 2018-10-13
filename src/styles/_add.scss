@@ -1,0 +1,140 @@
+.c-add-agreements {
+  &__text {
+    height: 30.75rem;
+    margin: 1.125rem;
+    padding-bottom: 4.5rem;
+    overflow-y: scroll;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.c-add-progress {
+  margin: 1.125rem;
+  position: relative;
+
+  &.is-1 {
+    .c-add-progress__progress:nth-child(1) {
+      .c-add-progress__dot {
+        background-color: #7200ff;
+      }
+      .c-add-progress__label {
+        color: #7200ff;
+      }
+    }
+  }
+
+  &.is-2 {
+    .c-add-progress__progress:nth-child(1) {
+      .c-add-progress__dot {
+        background-color: #CDA7FC;
+      }
+      .c-add-progress__label {
+        color: #CDA7FC;
+      }
+    }
+    .c-add-progress__progress:nth-child(3) {
+      .c-add-progress__dot {
+        background-color: #7200ff;
+      }
+      .c-add-progress__label {
+        color: #7200ff;
+      }
+    }
+    .c-add-progress__active-bar {
+      width: 50%;
+    }
+  }
+
+  &.is-3 {
+    .c-add-progress__progress:nth-child(1) {
+      .c-add-progress__dot {
+        background-color: #CDA7FC;
+      }
+      .c-add-progress__label {
+        color: #CDA7FC;
+      }
+    }
+    .c-add-progress__progress:nth-child(3) {
+      .c-add-progress__dot {
+        background-color: #CDA7FC;
+      }
+      .c-add-progress__label {
+        color: #CDA7FC;
+      }
+    }
+    .c-add-progress__progress:nth-child(5) {
+      .c-add-progress__dot {
+        background-color: #7200ff;
+      }
+      .c-add-progress__label {
+        color: #7200ff;
+      }
+    }
+    .c-add-progress__active-bar {
+      width: 100%;
+    }
+  }
+
+
+  &__bar {
+    background-color: #e5e5e5;
+    height: 1px;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &__active-bar {
+    background-color: #CDA7FC;
+    height: 1px;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 0;
+    z-index: -1;
+  }
+
+  &__progresses {
+    display: flex;
+  }
+
+  &__progress {
+    &:first-of-type {
+      .c-add-progress__space:first-of-type {
+        background-color: white;
+      }
+    }
+    &:last-of-type {
+      .c-add-progress__space:last-of-type {
+        background-color: white;
+      }
+    }
+  }
+
+  &__dot-container {
+    display: flex;
+  }
+
+  &__space {
+    flex: 1;
+  }
+
+  &__dot {
+    background-color: #e5e5e5;
+    border-radius: 4px;
+    width: 8px;
+    height: 8px;
+  }
+
+  &__label {
+    color: #e5e5e5;
+    font-size: .65rem;
+    font-weight: 700;
+    margin-top: .25rem;
+  }
+}
