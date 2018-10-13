@@ -108,7 +108,7 @@ export default class ComponentRequestAirplane extends React.Component {
         <ComponentRequestProgress progressNum={1} />
         <ComponentRequestAirplaneForm />
         <ComponentButtonIcon
-          icon={['fal', 'arrow-down']}
+          icon={['fal', 'arrow-right']}
           label='Next Step'
           isActivated={true}
           backgroundColor='#7200ff'

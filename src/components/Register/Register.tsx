@@ -50,7 +50,7 @@ export class ComponentRegister extends React.Component<{ register?: Register, sc
             <ComponentTop label='Register<br/>Credit Card' icon={['fal', 'clipboard']} />
             <ComponentRegisterCreditCardForm />
             <ComponentButtonIcon
-              icon={['fal', 'arrow-down']}
+              icon={['fal', 'arrow-right']}
               backgroundColor='black'
               label='Next'
               isActivated={

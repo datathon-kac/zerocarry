@@ -86,7 +86,7 @@ export default class ComponentRequestDetails extends React.Component {
         <ComponentRequestProgress progressNum={2} />
         <ComponentRequestDetailsForm />
         <ComponentButtonIcon
-          icon={['fal', 'arrow-down']}
+          icon={['fal', 'arrow-right']}
           label='Next Step'
           isActivated={true}
           backgroundColor='#7200ff'

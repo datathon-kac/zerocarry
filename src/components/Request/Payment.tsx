@@ -4,6 +4,7 @@ import { ComponentRequestProgress } from './Progress'
 import { observer, inject } from 'mobx-react'
 import { Register, Request, Screen, GlobalScreen } from '../../store'
 import axios from 'axios'
+import delay from 'timeout-as-promise'
 
 @inject('register', 'request', 'screen')
 @observer
@@ -15,7 +16,7 @@ class ComponentRequestPaymentCard extends React.Component<{ register?: Register,
   checkout = async () => {
     if (!this.props.request || !this.props.register || !this.props.screen) { return }
     const { data: arrivalAirportLocation } = await axios.get(`http://192.168.164.34:3000/api/airport?iataCode=${this.props.request.airplane.fdst}`)
-    await axios.post('http://192.168.164.34:3000/api/delivers', {
+    const { data: { deliverId }} = await axios.post('http://192.168.164.34:3000/api/delivers', {
       price: 1000,
       arrivalDatetime: new Date(this.props.request.airplane.scheduled_arrtime * 1000),
       destinationAddress: this.props.request.deliveredTo,
@@ -26,6 +27,11 @@ class ComponentRequestPaymentCard extends React.Component<{ register?: Register,
       airportCode: this.props.request.airplane.fdst,
     })
     this.props.screen.setGlobalScreen(GlobalScreen.Deliver)
+    await delay(5000)
+    await axios.put(`http://192.168.164.34:3000/api/delivers/${deliverId}`, {
+      price: 1000,
+      deliverStat: 1,
+    })
   }
 
   async componentDidMount() {

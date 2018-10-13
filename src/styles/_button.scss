@@ -16,7 +16,7 @@
   }
 
   &.is-bottom {
-    position: absolute;
+    position: fixed;
     bottom: 1.5625rem;
     left: 1.5625rem;
     width: calc(100% - 3.125rem);
