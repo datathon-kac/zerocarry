@@ -11,6 +11,13 @@ import axios from 'axios'
 export class ComponentRequestAirplaneForm extends React.Component<{ request?: Request }> {
   state = {
     airplaneCodes: [],
+    airplanes: [],
+  }
+
+  requestFlightList = async () => {
+    const request = this.props.request as Request
+    const { data: airplanes } = await axios.get(`http://192.168.164.34:3000/api/flight?unixTime=${request.departureDatetime}&city=${request.departureAirportCode}`)
+    this.setState({ airplanes })
   }
 
   onDepartureAirportCodeChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,24 +28,17 @@ export class ComponentRequestAirplaneForm extends React.Component<{ request?: Re
     const request = this.props.request as Request
     request.setDepartureDate(e.target.value)
     if (Number.isNaN(request.departureDatetime)) { return }
-    const { data: results } = await axios.get(`http://192.168.164.34:3000/api/flight?unixTime=${request.departureDatetime}&city=${request.departureAirportCode}`)
-    this.setState({
-      airplaneCodes: results.map((result: any) => result.fnum),
-    })
+    await this.requestFlightList()
   }
   onDepartureTimeChanged = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const request = this.props.request as Request
     request.setDepartureTime(e.target.value)
     if (Number.isNaN(request.departureDatetime)) { return }
-    const { data: results } = await axios.get(`http://192.168.164.34:3000/api/flight?unixTime=${request.departureDatetime}&city=${request.departureAirportCode}`)
-    this.setState({
-      airplaneCodes: results.map((result: any) => result.fnum),
-    })
+    await this.requestFlightList()
   }
   onAirplaneCodeChanged = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const request = this.props.request as Request
-    request.setAirplaneCode(e.target.value)
-    console.log(request)
+    request.setAirplane(this.state.airplanes[Number(e.target.value)])
   }
   render() {
     if (!this.props.request) {
@@ -80,14 +80,14 @@ export class ComponentRequestAirplaneForm extends React.Component<{ request?: Re
             />
           </div>
         </div>
-        {this.state.airplaneCodes.length > 0 && (
+        {this.state.airplanes.length > 0 && (
           <div className='field'>
             <label className='label'>Choose Airplane Code</label>
             <div className='select is-fullwidth'>
               <select onChange={this.onAirplaneCodeChanged}>
                 <option>Select air</option>
-                {this.state.airplaneCodes.map((code: string) => (
-                  <option value={code} key={code}>{code}</option>
+                {this.state.airplanes.map((airplane: any, index) => (
+                  <option value={index} key={airplane.fnum}>{airplane.fnum}</option>
                 ))}
               </select>
             </div>

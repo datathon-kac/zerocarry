@@ -11,6 +11,7 @@ export class Register {
   @observable securityCode: string
   @observable zip: string
   @observable luggagePictureUrl: string
+  @observable userId: string
 
   constructor() {
     const user = JSON.parse(localStorage.getItem('user') as string)
@@ -24,6 +25,7 @@ export class Register {
     this.securityCode = (user && user.securityCode) || ''
     this.zip = (user && user.zip) || ''
     this.luggagePictureUrl = (user && user.luggagePictureUrl) || ''
+    this.userId = (user && user.userId) || ''
   }
 
   @computed get cardNumber() {
@@ -104,6 +106,10 @@ export class Register {
 
   @action setLuggagePictureUrl(url: string) {
     this.luggagePictureUrl = url
+  }
+
+  @action setUserId(userId: string) {
+    this.userId = userId
   }
 }
 

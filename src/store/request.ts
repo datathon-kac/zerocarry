@@ -5,10 +5,12 @@ export class Request {
   @observable departureDate: string
   @observable departureTime: string
   @observable airplaneCode: string
+  @observable airplane: any
   @observable deliveredTo: string
   @observable contactNumber: string
   @observable deliveredToLat: number
   @observable deliveredToLng: number
+  @observable price: number
 
   @computed get departureDatetime() {
     const date = new Date(this.departureDate + 'T' + this.departureTime)
@@ -20,10 +22,12 @@ export class Request {
     this.departureDate = ''
     this.departureTime = ''
     this.airplaneCode = ''
+    this.airplane = null
     this.deliveredTo = ''
     this.deliveredToLat = 0
     this.deliveredToLng = 0
     this.contactNumber = ''
+    this.price = 0
   }
 
   init() {
@@ -31,10 +35,12 @@ export class Request {
     this.departureDate = ''
     this.departureTime = ''
     this.airplaneCode = ''
+    this.airplane = null
     this.deliveredTo = ''
     this.deliveredToLat = 0
     this.deliveredToLng = 0
     this.contactNumber = ''
+    this.price = 0
   }
 
   @action setDepartureAirportCode(code: string) {
@@ -48,6 +54,9 @@ export class Request {
   }
   @action setAirplaneCode(code: string) {
     this.airplaneCode = code
+  }
+  @action setAirplane(airplane: any) {
+    this.airplane = airplane
   }
   @action setDeliveredTo(address: string) {
     this.deliveredTo = address

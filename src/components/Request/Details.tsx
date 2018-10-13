@@ -2,7 +2,7 @@ import * as React from 'react'
 import { ComponentTopRequest } from '../Top'
 import { ComponentRequestProgress } from './Progress'
 import { ComponentButtonIcon } from '../Button'
-import { screen, RequestScreen, Request } from '../../store'
+import { screen, RequestScreen, Request, request } from '../../store'
 import { inject, observer } from 'mobx-react'
 
 declare const window: any
@@ -11,7 +11,9 @@ declare const window: any
 @observer
 export class ComponentRequestDetailsForm extends React.Component<{ request?: Request }> {
   componentDidMount() {
-    const inputs = document.getElementsByClassName('c-request-details-form__address-input')
+    if (!this.props.request) { return }
+    const self = this
+    const inputs: any = document.getElementsByClassName('c-request-details-form__address-input')
     // const geocoder = new window.google.maps.Geocoder()
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i]
@@ -20,7 +22,11 @@ export class ComponentRequestDetailsForm extends React.Component<{ request?: Req
       })
       autocomplete.inputId = input.id
       autocomplete.addListener('place_changed', function onPlaceChanged(this: any) {
-        console.log(this.getPlace())
+        if (!self.props.request) { return }
+        const location = this.getPlace().geometry.location
+        self.props.request.setDeliveredTo(input.value)
+        self.props.request.deliveredToLat = location.lat()
+        self.props.request.deliveredToLng = location.lng()
       })
     }
   }
