@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { observer, Provider } from 'mobx-react'
-import { Screen, GlobalScreen, register, screen } from '../store'
+import { Screen, GlobalScreen, register, screen, add } from '../store'
 import { ComponentFirstTime } from './FirstTime'
 import { ComponentRegister } from './Register'
 import { ComponentDeliver } from './Deliver'
@@ -10,7 +10,7 @@ import { ComponentAdd } from './Add'
 export default class ComponentApp extends React.Component<{ screen: Screen }> {
   render() {
     return (
-      <Provider screen={screen} register={register}>
+      <Provider screen={screen} register={register} add={add}>
         <div className='c-app'>
           {this.props.screen.global === GlobalScreen.FirstTime && (
             <ComponentFirstTime />

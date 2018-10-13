@@ -1,4 +1,6 @@
 export * from './screen'
 export * from './register'
+export * from './add'
 export { default as screen } from './screen'
 export { default as register } from './register'
+export { default as add } from './add'
