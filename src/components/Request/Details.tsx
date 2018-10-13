@@ -14,7 +14,6 @@ export class ComponentRequestDetailsForm extends React.Component<{ request?: Req
     if (!this.props.request) { return }
     const self = this
     const inputs: any = document.getElementsByClassName('c-request-details-form__address-input')
-    // const geocoder = new window.google.maps.Geocoder()
     for (let i = 0; i < inputs.length; i++) {
       const input = inputs[i]
       const autocomplete = new window.google.maps.places.Autocomplete(input, {
@@ -33,7 +32,6 @@ export class ComponentRequestDetailsForm extends React.Component<{ request?: Req
   onDeliveredToChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     const request = this.props.request as Request
     request.setDeliveredTo(e.target.value)
-    console.log(request)
   }
   onContactNumberChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     const request = this.props.request as Request
@@ -76,7 +74,7 @@ export class ComponentRequestDetailsForm extends React.Component<{ request?: Req
   }
 }
 
-export default class ComponentRequestDetails extends React.Component {
+export class ComponentRequestDetails extends React.Component {
   render() {
     return (
       <div className='c-request-details'>

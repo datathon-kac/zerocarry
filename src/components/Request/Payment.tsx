@@ -136,7 +136,7 @@ class ComponentRequestPaymentCard extends React.Component<{ register?: Register,
   }
 }
 
-export default class ComponentRequestPayment extends React.Component {
+export class ComponentRequestPayment extends React.Component {
   render() {
     return (
       <div className='c-request-payment'>

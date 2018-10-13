@@ -2,9 +2,9 @@ import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Screen, RequestScreen } from '../../store'
 import { ComponentRequestAgreements } from './Agreements'
-import ComponentRequestAirplane from './Airplane'
-import ComponentRequestDetails from './Details'
-import ComponentRequestPayment from './Payment'
+import { ComponentRequestAirplane } from './Airplane'
+import { ComponentRequestDetails } from './Details'
+import { ComponentRequestPayment } from './Payment'
 
 @inject('screen')
 @observer

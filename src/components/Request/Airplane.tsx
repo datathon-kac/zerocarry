@@ -98,7 +98,7 @@ export class ComponentRequestAirplaneForm extends React.Component<{ request?: Re
   }
 }
 
-export default class ComponentRequestAirplane extends React.Component {
+export class ComponentRequestAirplane extends React.Component {
   render() {
     return (
       <div className='c-request-airplane'>
