@@ -19,7 +19,7 @@ export class ComponentRequestDetailsForm extends React.Component<{ request?: Req
         types: ['geocode'],
       })
       autocomplete.inputId = input.id
-      autocomplete.addListener('place_changed', function onPlaceChanged() {
+      autocomplete.addListener('place_changed', function onPlaceChanged(this: any) {
         console.log(this.getPlace())
       })
     }
