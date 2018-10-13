@@ -32,6 +32,7 @@ class ComponentRequestPaymentCard extends React.Component<{ register?: Register,
       price: 1000,
       deliverStat: 1,
     })
+    location.reload()
   }
 
   async componentDidMount() {

@@ -63,7 +63,7 @@ export class ComponentRequestDetailsForm extends React.Component<{ request?: Req
             <input
               className='input'
               type='text'
-              placeholder='+821036319283'
+              placeholder='+821012345678'
               value={this.props.request.contactNumber}
               onChange={this.onContactNumberChanged}
             />

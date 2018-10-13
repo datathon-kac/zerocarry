@@ -8,10 +8,18 @@ import axios from 'axios'
 @inject('register')
 @observer
 export class ComponentDeliverCard extends React.Component<{ register?: Register, deliver: any }> {
+  onClick = async () => {
+    window.open(`http://192.168.164.34:5500/direction?start_lat=${this.props.deliver.airportLatLng.x}&start_lng=${this.props.deliver.airportLatLng.y}&end_lat=${this.props.deliver.destinationLatLng.x}&end_lng=${this.props.deliver.destinationLatLng.y}`)
+    await axios.put(`http://192.168.164.34:3000/api/delivers/${this.props.deliver.deliverId}`, {
+      price: 1000,
+      deliverStat: 2,
+    })
+    location.reload()
+  }
   render() {
     if (!this.props.register) { return }
     return (
-      <div className='c-deliver-card'>
+      <div className='c-deliver-card' onClick={this.onClick}>
         <div className='c-deliver-card__thumbnail' style={{ backgroundImage: `url('${this.props.register.luggagePictureUrl}')`}}/>
         <div className='c-deliver-card__details'>
           <div className='c-deliver-card-item'>

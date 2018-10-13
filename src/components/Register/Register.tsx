@@ -28,7 +28,7 @@ export class ComponentRegister extends React.Component<{ register?: Register, sc
       password: 'fuckingdatathon',
       email: 'tony@erion.kr',
       passportCode: 'M12345678',
-      contactNumber: '01036319283',
+      contactNumber: '01012345678',
       luggagePictureUrl: this.props.register.luggagePictureUrl,
     })
     this.props.register.setUserId(userId)
