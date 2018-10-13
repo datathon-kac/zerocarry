@@ -4,7 +4,7 @@ export enum GlobalScreen {
   FirstTime,
   Register,
   Deliver,
-  Add,
+  Request,
 }
 
 export enum RegisterScreen {
@@ -12,7 +12,7 @@ export enum RegisterScreen {
   Luggage,
 }
 
-export enum AddScreen {
+export enum RequestScreen {
   Agreements,
   Airplane,
   Details,
@@ -22,12 +22,12 @@ export enum AddScreen {
 export class Screen {
   @observable public global: GlobalScreen
   @observable public register: RegisterScreen
-  @observable public add: AddScreen
+  @observable public request: RequestScreen
 
   constructor() {
     this.global = GlobalScreen.FirstTime
     this.register = RegisterScreen.CreditCard
-    this.add = AddScreen.Agreements
+    this.request = RequestScreen.Agreements
   }
 
   @action setGlobalScreen(screen: GlobalScreen) {
@@ -38,8 +38,8 @@ export class Screen {
     this.register = screen
   }
 
-  @action setAddScreen(screen: AddScreen) {
-    this.add = screen
+  @action setRequestScreen(screen: RequestScreen) {
+    this.request = screen
   }
 }
 

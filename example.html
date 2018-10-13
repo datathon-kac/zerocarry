@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Place Autocomplete and Directions</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+    #autocomplete {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="locationField">
+    <input id="source" class="query" type="text" />
+    <input id="target" class="query" type="text" />
+  </div>
+  <script>
+    var inputs = document.getElementsByClassName('query');
+    var autocompletes = [];
+    var geocoder;
+
+    function fillIn() {
+      console.log(this.inputId);
+      var place = this.getPlace();
+      console.log(place.address_components[0].long_name);
+      codeAddress(document.getElementById(this.inputId).value);
+    }
+
+    function initAutocomplete() {
+      geocoder = new google.maps.Geocoder();
+      for (var i = 0; i < inputs.length; i++) {
+        var autocomplete = new google.maps.places.Autocomplete(inputs[i], {
+          types: ['geocode']
+        });
+        autocomplete.inputId = inputs[i].id;
+        autocomplete.addListener('place_changed', fillIn);
+        autocompletes.push(autocomplete);
+      }
+    }
+
+    function initInput(elm) {
+      Autocomplete[elm] = new google.maps.places.Autocomplete(
+        (document.getElementById(elm)), {
+          types: ['geocode']
+        });
+      Autocomplete[elm].addListener('place_changed', fillInAddress(elm));
+    }
+
+    function codeAddress(address) {
+      geocoder.geocode({
+        'address': address
+      }, function (results, status) {
+        if (status == 'OK') {
+          // This is the lat and lng results[0].geometry.location
+          alert(results[0].geometry.location);
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqQFkzswKEEoHMw4W8NzQ2Ii0AFFRhPk&libraries=places&callback=initAutocomplete"
+    async defer></script>
+</body>
+
+</html>

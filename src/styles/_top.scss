@@ -23,11 +23,20 @@
   display: none;
 }
 
-.c-top-add-in {
+.c-top-request-in {
   background-color: #f7f0ff;
   box-shadow: 0 1px 0 0 #e4ceff;
   padding-top: 3.75rem;
   position: relative;
+
+  &__close {
+    color: #7200ff;
+    cursor: pointer;
+    position: absolute;
+    top: .4rem;
+    right: .8rem;
+    font-size: 1.25rem;
+  }
 
   &__label {
     color: #7200ff;
@@ -44,7 +53,7 @@
   }
 }
 
-.c-top-add-fixed {
+.c-top-request-fixed {
   position: fixed;
   display: none;
 }

@@ -46,7 +46,7 @@ export class ComponentRegister extends React.Component<{ register?: Register, sc
         {this.props.screen.register === RegisterScreen.CreditCard && (
           <>
             <ComponentTop label='Register<br/>Credit Card' icon={['fal', 'clipboard']} />
-            <ComponentRegisterCreditCardForm register={this.props.register} />
+            <ComponentRegisterCreditCardForm />
             <ComponentButtonIcon
               icon={['fal', 'arrow-down']}
               backgroundColor='black'
@@ -66,7 +66,7 @@ export class ComponentRegister extends React.Component<{ register?: Register, sc
         {this.props.screen.register === RegisterScreen.Luggage && (
           <>
             <ComponentTop label='Register<br/>My Luggage' icon={['fal', 'suitcase']} />
-            <ComponentRegisterLuggageForm register={this.props.register} />
+            <ComponentRegisterLuggageForm />
             <ComponentButtonIcon
               icon={['fal', 'check']}
               backgroundColor='black'

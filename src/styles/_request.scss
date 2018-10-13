@@ -1,8 +1,7 @@
-.c-add-agreements {
+.c-request-agreements {
   &__text {
-    height: 30.75rem;
+    height: 26.25rem;
     margin: 1.125rem;
-    padding-bottom: 4.5rem;
     overflow-y: scroll;
 
     p {
@@ -11,73 +10,73 @@
   }
 }
 
-.c-add-airplane-form, .c-add-details-form {
+.c-request-airplane-form, .c-request-details-form {
   padding: .5rem 1.5625rem;
 }
 
-.c-add-progress {
-  margin: 1.125rem;
+.c-request-progress {
+  margin: 1.5rem 1.125rem;
   position: relative;
 
   &.is-1 {
-    .c-add-progress__progress:nth-child(1) {
-      .c-add-progress__dot {
+    .c-request-progress__progress:nth-child(1) {
+      .c-request-progress__dot {
         background-color: #7200ff;
       }
-      .c-add-progress__label {
+      .c-request-progress__label {
         color: #7200ff;
       }
     }
   }
 
   &.is-2 {
-    .c-add-progress__progress:nth-child(1) {
-      .c-add-progress__dot {
+    .c-request-progress__progress:nth-child(1) {
+      .c-request-progress__dot {
         background-color: #CDA7FC;
       }
-      .c-add-progress__label {
+      .c-request-progress__label {
         color: #CDA7FC;
       }
     }
-    .c-add-progress__progress:nth-child(3) {
-      .c-add-progress__dot {
+    .c-request-progress__progress:nth-child(3) {
+      .c-request-progress__dot {
         background-color: #7200ff;
       }
-      .c-add-progress__label {
+      .c-request-progress__label {
         color: #7200ff;
       }
     }
-    .c-add-progress__active-bar {
+    .c-request-progress__active-bar {
       width: 50%;
     }
   }
 
   &.is-3 {
-    .c-add-progress__progress:nth-child(1) {
-      .c-add-progress__dot {
+    .c-request-progress__progress:nth-child(1) {
+      .c-request-progress__dot {
         background-color: #CDA7FC;
       }
-      .c-add-progress__label {
+      .c-request-progress__label {
         color: #CDA7FC;
       }
     }
-    .c-add-progress__progress:nth-child(3) {
-      .c-add-progress__dot {
+    .c-request-progress__progress:nth-child(3) {
+      .c-request-progress__dot {
         background-color: #CDA7FC;
       }
-      .c-add-progress__label {
+      .c-request-progress__label {
         color: #CDA7FC;
       }
     }
-    .c-add-progress__progress:nth-child(5) {
-      .c-add-progress__dot {
+    .c-request-progress__progress:nth-child(5) {
+      .c-request-progress__dot {
         background-color: #7200ff;
       }
-      .c-add-progress__label {
+      .c-request-progress__label {
         color: #7200ff;
       }
     }
-    .c-add-progress__active-bar {
+    .c-request-progress__active-bar {
       width: 100%;
     }
   }
@@ -109,12 +108,12 @@
 
   &__progress {
     &:first-of-type {
-      .c-add-progress__space:first-of-type {
+      .c-request-progress__space:first-of-type {
         background-color: white;
       }
     }
     &:last-of-type {
-      .c-add-progress__space:last-of-type {
+      .c-request-progress__space:last-of-type {
         background-color: white;
       }
     }

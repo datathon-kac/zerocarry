@@ -5,13 +5,13 @@ import { ComponentButtonIcon } from '../Button'
 
 export class ComponentDeliver extends React.Component {
   addNewDeliver = () => {
-    screen.setGlobalScreen(GlobalScreen.Add)
+    screen.setGlobalScreen(GlobalScreen.Request)
   }
   render() {
     return (
       <div className='c-deliver'>
         <ComponentTop
-          label='Delievery'
+          label='Delivery'
           icon={['fal', 'truck']}
         />
         <ComponentButtonIcon
