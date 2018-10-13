@@ -1,10 +1,51 @@
 import * as React from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import { Register } from '../../store'
 
+@inject('register')
 @observer
-export class ComponentRegisterCreditCardForm extends React.Component<{ register: Register }> {
+export class ComponentRegisterCreditCardForm extends React.Component<{ register?: Register }> {
+  onNameOnCardChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setNameOnCard(e.target.value)
+  }
+  onCardNumber1Changed = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setCardNumber1(e.target.value)
+  }
+  onCardNumber2Changed = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setCardNumber2(e.target.value)
+  }
+  onCardNumber3Changed = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setCardNumber3(e.target.value)
+  }
+  onCardNumber4Changed = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setCardNumber4(e.target.value)
+  }
+  onExpiryDateMonthChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setExpiryDateMonth(e.target.value)
+  }
+  onExpiryDateYearChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setExpiryDateYear(e.target.value)
+  }
+  onSecurityCodeChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setSecurityCode(e.target.value)
+  }
+  onZipChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const register = this.props.register as Register
+    register.setZip(e.target.value)
+  }
+
   render() {
+    if (this.props.register === undefined) {
+      throw new Error('register store is undefined')
+    }
     return (
       <div className='c-register-credit-card-form'>
         <div className='field'>
@@ -15,7 +56,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
               type='text'
               placeholder='STEVE JOBS'
               value={this.props.register.nameOnCard}
-              onChange={(e) => this.props.register.setNameOnCard(e.target.value)}
+              onChange={this.onNameOnCardChanged}
             />
           </div>
         </div>
@@ -29,7 +70,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
                   type='text'
                   placeholder='1234'
                   value={this.props.register.cardNumber1}
-                  onChange={(e) => this.props.register.setCardNumber1(e.target.value)}
+                  onChange={this.onCardNumber1Changed}
                 />
               </div>
             </div>
@@ -40,7 +81,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
                   type='text'
                   placeholder='5678'
                   value={this.props.register.cardNumber2}
-                  onChange={(e) => this.props.register.setCardNumber2(e.target.value)}
+                  onChange={this.onCardNumber2Changed}
                 />
               </div>
             </div>
@@ -51,7 +92,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
                   type='text'
                   placeholder='9012'
                   value={this.props.register.cardNumber3}
-                  onChange={(e) => this.props.register.setCardNumber3(e.target.value)}
+                  onChange={this.onCardNumber3Changed}
                 />
               </div>
             </div>
@@ -62,7 +103,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
                   type='text'
                   placeholder='3456'
                   value={this.props.register.cardNumber4}
-                  onChange={(e) => this.props.register.setCardNumber4(e.target.value)}
+                  onChange={this.onCardNumber4Changed}
                 />
               </div>
             </div>
@@ -80,7 +121,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
                       type='text'
                       placeholder='MM'
                       value={this.props.register.expiryDateMonth}
-                      onChange={(e) => this.props.register.setExpiryDateMonth(e.target.value)}
+                      onChange={this.onExpiryDateMonthChanged}
                     />
                   </div>
                 </div>
@@ -91,7 +132,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
                       type='text'
                       placeholder='YYYY'
                       value={this.props.register.expiryDateYear}
-                      onChange={(e) => this.props.register.setExpiryDateYear(e.target.value)}
+                      onChange={this.onExpiryDateYearChanged}
                     />
                   </div>
                 </div>
@@ -107,7 +148,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
                   type='text'
                   placeholder='123'
                   value={this.props.register.securityCode}
-                  onChange={(e) => this.props.register.setSecurityCode(e.target.value)}
+                  onChange={this.onSecurityCodeChanged}
                 />
               </div>
             </div>
@@ -121,7 +162,7 @@ export class ComponentRegisterCreditCardForm extends React.Component<{ register:
               type='text'
               placeholder='12345'
               value={this.props.register.zip}
-              onChange={(e) => this.props.register.setZip(e.target.value)}
+              onChange={this.onZipChanged}
             />
           </div>
         </div>

@@ -1,19 +1,25 @@
 import axios from 'axios'
 import * as React from 'react'
 import { Register, screen, GlobalScreen, RegisterScreen, Screen } from '../../store'
-import { observer } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 import { ComponentTop } from '../Top'
 import { ComponentButtonIcon } from '../Button'
 import { ComponentRegisterCreditCardForm, ComponentRegisterLuggageForm } from './'
 
+@inject('screen', 'register')
 @observer
-export class ComponentRegister extends React.Component<{ register: Register, screen: Screen }> {
+export class ComponentRegister extends React.Component<{ register?: Register, screen?: Screen }> {
   gotoLuggagePictureUploadScreen = () => {
+    if (!this.props.screen) {
+      throw new Error('screen store is undefined')
+    }
     this.props.screen.setRegisterScreen(RegisterScreen.Luggage)
   }
 
   register = async () => {
-    localStorage.setItem('user', JSON.stringify(this.props.register))
+    if (!this.props.register) {
+      throw new Error('register store is undefined')
+    }
     await axios.post('http://192.168.164.34:3000/api/users/', {
       firstName: 'tony',
       lastName: 'won',
@@ -24,10 +30,17 @@ export class ComponentRegister extends React.Component<{ register: Register, scr
       contactNumber: '01036319283',
       luggagePictureUrl: this.props.register.luggagePictureUrl,
     })
+    localStorage.setItem('user', JSON.stringify(this.props.register))
     screen.setGlobalScreen(GlobalScreen.Deliver)
   }
 
   render() {
+    if (!this.props.screen) {
+      throw new Error('screen store is undefined')
+    }
+    if (!this.props.register) {
+      throw new Error('register store is undefined')
+    }
     return (
       <div className='c-register'>
         {this.props.screen.register === RegisterScreen.CreditCard && (
@@ -59,7 +72,6 @@ export class ComponentRegister extends React.Component<{ register: Register, scr
               backgroundColor='black'
               label='Complete Registration'
               isActivated={this.props.register.isLuggagePictureUrlValid}
-              // isActivated={true}
               isBottom={true}
               onClick={this.register}
             />
